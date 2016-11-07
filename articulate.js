@@ -9,7 +9,13 @@ $(document).ready(function() {
     $('#reverse').click(reverseCards);
 });
 
-var loadCards = function() {
+function loadCategoryPicker() {
+
+
+
+}
+
+function loadCards() {
     return $.getJSON('articulate.json', function(data) {
         var cardsAndCats = generateCards(data.categories);
         categories = cardsAndCats.shift();
