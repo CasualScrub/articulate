@@ -1,18 +1,22 @@
 {
-    "categories": [{
+    "People": {
         "words": ["Bob", "Joe", "Henry", "Jim"],
         "name": "People"
-    }, {
+    },
+    "World": {
         "words": ["England", "France", "Scotland"],
         "name": "World"
-    }, {
+    },
+    "Nature": {
         "words": ["Cows", "Sheep", "Dragon"],
         "name": "Nature"
-    }, {
+    },
+    "Random": {
         "words": ["Casper", "Bahamas", "Dutch"],
         "name": "Random"
-    }, {
+    },
+    "Verb": {
         "words": ["Doing", "Existing", "Happening"],
         "name": "Verb"
-    }]
+    }
 }

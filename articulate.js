@@ -1,36 +1,57 @@
+var allCats = {};
 var cards = [];
 var categories = [];
 var cardIndex = 0;
 
 $(document).ready(function() {
-    $('#load').click(loadCards);
-    $('#next').click(nextCard);
-    $('#previous').click(previousCard);
-    $('#reverse').click(reverseCards);
+    $.when(loadJSON()).then(function() {
+        loadCategoryPicker();
+    });
 });
 
 function loadCategoryPicker() {
+    $('#articulate').html($('#TEMcategories').html());
+    var i = 0;
+    for(var cat in allCats) {
+        var html = '<li class="category"><input data-cat='+ cat +' type="checkbox"';
+        if(i<5) html += 'checked';
+        html += '>' + cat +'</input></li>';
+        $('#categories').append(html);
+        i++;
+    }
+    $('#load').click(loadCards);
+}
 
-
-
+var loadJSON = function() {
+    return $.getJSON('articulate.json', function(data) {
+        allCats = data;
+        //~ categories = cardsAndCats.shift();
+        //~ cards = cardsAndCats;
+    });
 }
 
 function loadCards() {
-    return $.getJSON('articulate.json', function(data) {
-        var cardsAndCats = generateCards(data.categories);
-        categories = cardsAndCats.shift();
-        cards = cardsAndCats;
-        var cardHeight = categories.length*20;
-        $('#cards').css('height', cardHeight + 'px');
-        $('#cards').html('');
-        cardIndex = 0;
-        cards[cardIndex].draw();
+    var catsToLoad = [];
+    $('.category [type=checkbox]').each(function() {
+        if($(this).is(':checked') && allCats.hasOwnProperty($(this).attr('data-cat'))) {
+            catsToLoad.push(allCats[$(this).attr('data-cat')]);
+        }
     });
+    console.log(catsToLoad);
+    cards = generateCards(catsToLoad);
+    $('#articulate').html($('#TEMcards').html());
+    var cardHeight = categories.length*20;
+    $('#cards').css('height', cardHeight + 'px');
+    $('#cards').html('');
+    cardIndex = 0;
+    cards[cardIndex].draw();
+    $('#next').click(nextCard);
+    $('#previous').click(previousCard);
+    $('#reverse').click(reverseCards);
 }
 
 function generateCards(cats) {
     var words = {};
-    var categories = [];
     var maxCards = 0;
     var cards = [];
     for(var i=0; i<cats.length; i++) {
@@ -45,20 +66,21 @@ function generateCards(cats) {
             }
         }
     }
-    cards.push(categories);
     for(var i=0; i<maxCards; i++) {
         myWords = {};
         for(var j=0; j<categories.length; j++) {
             myWords[categories[j]] = words[categories[j]][i];
         }
         var card = new Card(myWords);
+        console.log(card);
         cards.push(card);
     }
+    console.log(cards);
     return cards;
 }
 
 function nextCard() {
-    cardIndex++
+    cardIndex++;
     if(cardIndex < cards.length) {
         cards[cardIndex].draw();
     }
