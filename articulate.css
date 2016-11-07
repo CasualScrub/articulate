@@ -1,0 +1,106 @@
+button {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+}
+
+#articulate {
+    width: 550px
+}
+
+#cards {
+    display: inline-block;
+    height: 100px;
+    margin: 25px 5px;
+    position: relative;
+    width: 312px;
+}
+
+#next, #previous {
+    display: inline-block;
+    margin-top: 50px;
+}
+
+#previous {
+    float:left;
+    margin-left: 25px;
+}
+
+#next {
+    float: right;
+}
+
+.button-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.button-holder button {
+    margin: 10px;
+}
+
+.card {
+    border: 1px solid black;
+    margin: 5px;
+    width: 300px;
+    position: absolute;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+}
+
+.top {
+    -webkit-user-select: text;  /* Chrome all / Safari all */
+    -moz-user-select: text;     /* Firefox all */
+    -ms-user-select: text;      /* IE 10+ */
+    user-select: text;          /* Likely future */
+}
+
+ol, ul {
+    list-style: inside none none;
+    padding: 0;
+}
+
+.word {
+    border-bottom: 1px solid black;
+    padding-left: 40px;
+}
+
+.word:last-child {
+    border-bottom: none;
+}
+
+.People {
+    background-color: orange;
+}
+
+.Nature {
+    background-color: green;
+}
+
+.World {
+    background-color: purple;
+}
+
+.Verb {
+    background-color: yellow;
+}
+
+.Random {
+    background-color: red;
+}
+
+/*
+.hidden {
+    display: none;
+}
+*/
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
