@@ -4,7 +4,7 @@ var categories = [];
 var cardIndex = 0;
 
 $(document).ready(function() {
-    $.when(loadJSON()).then(function() {
+    $.when(loadJSON).then(function() {
         loadCategoryPicker();
     });
 });
