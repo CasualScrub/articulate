@@ -92,6 +92,10 @@ ol, ul {
     background-color: yellow;
 }
 
+.Object {
+    background-color: blue;   
+}
+
 .Random {
     background-color: red;
 }
