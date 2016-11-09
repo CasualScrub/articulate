@@ -14,7 +14,7 @@ function loadCategoryPicker() {
     var i = 0;
     for(var cat in allCats) {
         var html = '<li class="category"><input data-cat='+ cat +' type="checkbox"';
-        if(i<5) html += 'checked';
+        if(i<6) html += 'checked';
         html += '>' + cat +'</input></li>';
         $('#categories').append(html);
         i++;
