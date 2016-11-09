@@ -1,22 +1,27 @@
 {
     "People": {
-        "words": ["Bob", "Joe", "Henry", "Jim"],
+        "words": ["Lady Macbeth","Kirsty Young","Gendarme","Alan Carr","Captain Ahab","Yves Saint-Laurent","Goldie Hawn","Phillip Schofield","Heather Mills","Vivienne Westwood","Abel","Buffalo Bill","Eros","Yogi Bear","Eddie Izzard","Glenda Jackson","Joe Calzaghe","Duffy","Wallis Simpson","Sleeping Beauty","Buzz Lightyear","George Harrison","The Cheeky Girls","St David","Kim Basinger","Peter Madnelson","Debbie McGee","Ranulph Fiennes","John Denver","Ronald McDonald","Steven Martin","Alan Alda","Peter Andre","Angus Dayton","Thor","Hare Krishna","Tonto"],
         "name": "People"
     },
     "World": {
-        "words": ["England", "France", "Scotland"],
+        "words": ["Harley Street","Humber Bridge","Pompey","Chinatown","Mykonos","ben Nevis","Heathrow","Pisa","The Barbican Centre","Kentucky","Great Salt Lake","Gaza","Lanzarote","Nudist Beach","Bern","Marseille","London Eye","The Great Rift Valley","Ironbridge","Ukraine","Heard","The Orient","Outer Hebrides","Hell","Timbuktu","Hungerford","St Kitts","The Azores","Lake Placid","Merseyside","Tahiti","The Champs Elysees","Park Lane","Bond Street","St Paul","Albuquerque","Pall Mall"],
         "name": "World"
     },
+    "Object": {
+        "words": ["Pit","Billiard Table","Guide Book","Rosary Bead","Shoelace","Prayer Book","Dumbwaiter","Chain Saw","Market Stall","Bombshell","Pillow","Apron","Hacksaw","Clasp","Dynamo","Fish Hook","Sliding Door","Fibre","Pitchfork","Rucksack","Sausage","Fire Engine","Saucer","Blazer","Flowerpot","Puck","Bobble Hat","Roulette Wheel","Chimney Pot","Mural","Cribbage Board","Sequin","Floppy Disk","Decoy","Ceiling","Plaster","Freezer"],
+        "name": "Object"
+    },
+    "Verb": {
+        "words": ["Photographing","Longing","Deducing","Airing","Flying","Stripping","revolving","Abseiling","Ferrying","Touching","Filling","Wishing","Beating","Inconveniencing","Napping","Untying","Cascading","Observing","Warming","Narrowing","Tolling","Maturing","Quizzing","Decorating","Describing","Murdering","Squashing","Taking","Cabling","Logging","Pruning","Spluttering","Accounting","Drafting","Detonating","Arching","Fainting"],
+        "name": "Verb"
+    },
     "Nature": {
-        "words": ["Cows", "Sheep", "Dragon"],
+        "words": ["Asthma","Guillemot","Cyanide","Stubbed Toe","Belly","Gas","Dental Plaque","Acorn","Eggshell","Complexion","Brine","Flesh","Saffron","Hornbill","Storm Warning","Thyme","Chicory","Energy","Silver","Chick Pea","Daylight","Thunder","Copper","Cabbage","Albino","Haemophilia","Escarpment","volcano","Giblet","Pride","Chest","Bubonic Plague","Lentil","Deaf","Hurricane","Waterfall","Eclipse"],
         "name": "Nature"
     },
     "Random": {
-        "words": ["Casper", "Bahamas", "Dutch"],
+        "words": ["Chant","Clown","Twenty-Four Seven","Corporal Punishment","Feud","Furious","Authentic","Between","Bizarre","Flagship","Air Conditioning","Estimate","Adverse","Complacent","Anarchy","Cordon Bleu","Conscious","Anticipation","Antidote","Average","Chewing Gum","Haggis","Hijack","Harlequin","Hamlet","Correction","Conspiracy","Jolly Roger","Blue Moon","Flicker","Hen Night","The Battle of Britain","Anybody","Winning Post","Medieval","Habit","Contemporary"],
         "name": "Random"
-    },
-    "Verb": {
-        "words": ["Doing", "Existing", "Happening"],
-        "name": "Verb"
     }
+
 }
