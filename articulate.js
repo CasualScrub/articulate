@@ -22,7 +22,7 @@ function loadCategoryPicker() {
     $('#load').click(loadCards);
 }
 
-var loadJSON = function() {
+function loadJSON() {
     return $.getJSON('articulate.json', function(data) {
         allCats = data;
         //~ categories = cardsAndCats.shift();
