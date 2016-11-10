@@ -1,7 +1,7 @@
 var allCats = {};
 var cards = [];
 var categories = [];
-var cardIndex = 0;#
+var cardIndex = 0;
 
 function loadJSON() {
     return $.getJSON('articulate.json', function(data) {
