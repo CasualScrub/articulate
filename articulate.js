@@ -1,10 +1,18 @@
 var allCats = {};
 var cards = [];
 var categories = [];
-var cardIndex = 0;
+var cardIndex = 0;#
+
+function loadJSON() {
+    return $.getJSON('articulate.json', function(data) {
+        allCats = data;
+        //~ categories = cardsAndCats.shift();
+        //~ cards = cardsAndCats;
+    });
+}
 
 $(document).ready(function() {
-    $.when(loadJSON).then(function() {
+    $.when(loadJSON()).then(function() {
         loadCategoryPicker();
     });
 });
@@ -20,14 +28,6 @@ function loadCategoryPicker() {
         i++;
     }
     $('#load').click(loadCards);
-}
-
-function loadJSON() {
-    return $.getJSON('articulate.json', function(data) {
-        allCats = data;
-        //~ categories = cardsAndCats.shift();
-        //~ cards = cardsAndCats;
-    });
 }
 
 function loadCards() {
