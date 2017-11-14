@@ -1,13 +1,4 @@
-// var roles = {};
-
-
-// function loadJSON() {
-	// $.getJSON('roles.json', function(d) {
-		// roles = d;
-	// });
-// }
-
-$( document ).ready(function() {
+$(function() {
 function allAny() {
 	$(".player").each(function(i) {
 		$(this).children("input").eq(0).val("Player " + (i+1)).prop("disabled", false);
