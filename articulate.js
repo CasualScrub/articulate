@@ -1,121 +1,86 @@
-var allCats = {};
-var cards = [];
-var categories = [];
-var cardIndex = 0;
+// var roles = {};
 
-function loadJSON() {
-    return $.getJSON('articulate.json', function(data) {
-        allCats = data;
-        //~ categories = cardsAndCats.shift();
-        //~ cards = cardsAndCats;
-    });
+
+// function loadJSON() {
+	// $.getJSON('roles.json', function(d) {
+		// roles = d;
+	// });
+// }
+
+	
+function allAny() {
+	$(".player").each(function(i) {
+		$(this).children("input").eq(0).val("Player " + (i+1)).prop("disabled", false);
+		$(this).children("input").eq(1).val("Role").prop("disabled", false);
+		
+	});
 }
 
-$(document).ready(function() {
-    $.when(loadJSON()).then(function() {
-        loadCategoryPicker();
-    });
-});
-
-function loadCategoryPicker() {
-    $('#articulate').html($('#TEMcategories').html());
-    var i = 0;
-    for(var cat in allCats) {
-        var html = '<li class="category"><input data-cat='+ cat +' type="checkbox"';
-        if(i<6) html += 'checked';
-        html += '>' + cat +'</input></li>';
-        $('#categories').append(html);
-        i++;
-    }
-    $('#load').click(loadCards);
+function vip() {
+	$(".player").each(function(i) {
+		var role = "";
+		var align = "Town";
+		var disabled = true;
+		
+		switch(i) {
+			case 0:
+				role = "Sheriff";
+				break;
+			case 1:
+				role = "Crusader";
+				break;
+			case 2:
+				role = "Psychic";
+				break;
+			case 3:
+				role = "Vigilante";
+				break;
+			case 4:
+				role = "Trapper";
+				break;
+			case 5:
+				role = "Tracker";
+				break;
+			case 6:
+			case 7:
+				role = "TP";
+				disabled = false;
+				break;
+			case 8:
+				role = "TS";
+				disabled = false;
+				break;
+			case 9: 
+				role = "Guardian Angel";
+				align = "ga";
+				break;
+			case 10:
+				role = "Pirate";
+				align = "pirate";
+				break;
+			case 11:
+				role = "Coven Leader";
+				align = "coven";
+				break;
+			case 12: 
+				role = "Potion Master";
+				align = "coven";
+				break;
+			case 13: 
+				role = "Medusa";
+				align = "coven";
+				break;
+			case 14: 
+				role = "Random Coven";
+				align = "coven";
+				disabled = false;
+		}
+		$(this).children("input").eq(0).val(role).prop("disabled", disabled);
+		$(this).children("input").eq(1).val("Player");
+	});
+	
 }
 
-function loadCards() {
-    var catsToLoad = [];
-    $('.category [type=checkbox]').each(function() {
-        if($(this).is(':checked') && allCats.hasOwnProperty($(this).attr('data-cat'))) {
-            catsToLoad.push(allCats[$(this).attr('data-cat')]);
-        }
-    });
-    console.log(catsToLoad);
-    cards = generateCards(catsToLoad);
-    $('#articulate').html($('#TEMcards').html());
-    var cardHeight = categories.length*20;
-    $('#cards').css('height', cardHeight + 'px');
-    $('#cards').html('');
-    cardIndex = 0;
-    cards[cardIndex].draw();
-    $('#next').click(nextCard);
-    $('#previous').click(previousCard);
-    $('#reverse').click(reverseCards);
-}
+$("#vipButton").click(vip());
 
-function generateCards(cats) {
-    var words = {};
-    var maxCards = 0;
-    var cards = [];
-    for(var i=0; i<cats.length; i++) {
-        if(cats[i].words.length>0) {
-            categories.push(cats[i].name);
-            words[cats[i].name] = cats[i].words;
-            words[cats[i].name].sort(function() { return 0.5 - Math.random() });
-            if(i == 0) {
-                maxCards = words[cats[i].name].length;
-            } else if (words[cats[i].name].length < maxCards) {
-                maxCards = words[cats[i].name].length;
-            }
-        }
-    }
-    for(var i=0; i<maxCards; i++) {
-        myWords = {};
-        for(var j=0; j<categories.length; j++) {
-            myWords[categories[j]] = words[categories[j]][i];
-        }
-        var card = new Card(myWords);
-        console.log(card);
-        cards.push(card);
-    }
-    console.log(cards);
-    return cards;
-}
-
-function nextCard() {
-    cardIndex++;
-    if(cardIndex < cards.length) {
-        cards[cardIndex].draw();
-    }
-    else {
-        cardIndex--;
-    }
-}
-
-function previousCard() {
-    $('.card').each(function() {
-        if($(this).attr("data-index") == cardIndex) {
-            $(this).remove();
-            cardIndex--;
-        }
-    });
-}
-
-function reverseCards() {
-    cards.reverse();
-    $('#cards').html('');
-    cardIndex = 0;
-    cards[cardIndex].draw();
-}
-
-function Card(words) {
-    this.words = words;
-    this.draw = function() {
-        var cardHtml;
-        var rot = parseInt(Math.random()*18-9);
-        cardHtml = '<div class="card" data-index="'+ cardIndex +'" style="transform: rotate('+ rot +'deg)"><ul class="words">';
-        for(var i=0; i<categories.length; i++) {
-            cardHtml += '<li class="word '+ categories[i] +'">' + this.words[categories[i]] +'</li>';
-        }
-        cardHtml += '</ul></div>';
-        $('#cards').append(cardHtml);
-    }
-}
-
+$("#allAnyButton").cluck(allAny());
