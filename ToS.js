@@ -1,13 +1,16 @@
 $(function() {
-function allAny() {
+	
+
+
+$("#vipButton").click(function() {
 	$(".player").each(function(i) {
 		$(this).children("input").eq(0).val("Player " + (i+1)).prop("disabled", false);
 		$(this).children("input").eq(1).val("Role").prop("disabled", false);
 		
 	});
-}
+});
 
-function vip() {
+$("#allAnyButton").click(function() {
 	$(".player").each(function(i) {
 		var role = "";
 		var align = "Town";
@@ -70,10 +73,8 @@ function vip() {
 		$(this).children("input").eq(1).val("Player");
 	});
 	
-}
+});
 
-$("#vipButton").click(vip());
 
-$("#allAnyButton").click(allAny());
 
 });
