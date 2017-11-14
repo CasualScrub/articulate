@@ -80,3 +80,7 @@ function vip() {
 	});
 	
 }
+
+$("#vipButton").click(vip());
+
+$("#allAnyButton").cluck(allAny());
