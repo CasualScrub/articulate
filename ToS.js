@@ -7,7 +7,7 @@
 	// });
 // }
 
-	
+$( document ).ready(function() {
 function allAny() {
 	$(".player").each(function(i) {
 		$(this).children("input").eq(0).val("Player " + (i+1)).prop("disabled", false);
@@ -84,3 +84,5 @@ function vip() {
 $("#vipButton").click(vip());
 
 $("#allAnyButton").click(allAny());
+
+});
